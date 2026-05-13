@@ -6,5 +6,6 @@ services:
       - "3000:3000"
     environment:
       - NODE_ENV=production
+      - DATABASE_URL=file:/app/iot-data.db
     volumes:
       - ./iot-data.db:/app/iot-data.db
