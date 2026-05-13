@@ -55,7 +55,8 @@ export class SensorController {
   // GET /api/sensors/last/:limit - Últimos N registros
   static async getLastNRecords(req: Request, res: Response) {
     try {
-      const limit = parseInt(req.params.limit) || 10;
+      const limitParam = Array.isArray(req.params.limit) ? req.params.limit[0] : req.params.limit;
+      const limit = parseInt(limitParam ?? '10', 10) || 10;
       
       const records = await prisma.sensorData.findMany({
         take: limit,
