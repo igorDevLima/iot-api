@@ -26,4 +26,4 @@ RUN npm prune --production
 EXPOSE 3000
 
 # Inicia o servidor a partir do código compilado
-CMD ["node", "dist/server.js"]
+CMD ["node", "dist/common/server.js"]
